@@ -1,3 +1,27 @@
+#'Dynamic programming solution to the knapsack problem.
+#'
+#'The knapsack_dynamic function applies a dynamic programing solution to the knapsack
+#' problem. The function builds a matrix to store the calculations. 
+#' The maximum value and the used itemsare returned by the function.
+#'
+#'
+#'@param x    A data frame with two variables, w and v.
+#'@param W   An integer which represent the weight limit for the knapsack problem.
+#'
+#'@return A list with the maximun value for a collection of items that fits under the weight
+#'limit.
+#'
+#'
+#'@references 
+#'More about the knapsack problem can be read here:
+#'\url{https://en.wikipedia.org/wiki/Knapsack_problem}
+#'
+#'@examples
+#'##Get a solution for the knapsack problem on the data frame 
+#'knapsack_objects, with the knapsack size of 2000.
+#'knapsack_dynamic(x=knapsack_objects,W=2000)
+#'
+#'@export
 knapsack_dynamic<-function(x, W){
   w<-c(0,x[,1]) #Lägger till nollor i inledningen för att få matrisen att starta med nollor.
   v<-c(0,x[,2]) #Det krävs för att få koden till skapandet av matrisen att fungera.
