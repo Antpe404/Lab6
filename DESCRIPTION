@@ -1,0 +1,10 @@
+Package: Lab6
+Type: Package
+Title: Solve the knapsack problem
+Version: 1.0
+Date: 2016-10-05
+Author: Emil Klasson Svensson [aut,cre] Anton Persson [aut,cre]
+Maintainer: Emil Klasson Svensson <emisv463@student.liu.se>
+Description: Implements three different solutions to the knapsack problem
+License: BSD_2_clause
+RoxygenNote: 5.0.1
