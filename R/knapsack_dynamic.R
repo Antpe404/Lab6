@@ -23,8 +23,12 @@
 #'
 #'@export
 knapsack_dynamic<-function(x, W){
-  w<-c(0,x[,1]) #Lägger till nollor i inledningen för att få matrisen att starta med nollor.
-  v<-c(0,x[,2]) #Det krävs för att få koden till skapandet av matrisen att fungera.
+  
+  if(!is.data.frame(x) || !all(colnames(x)==c("w","v")) || !all(x>0) || !W>0 || !length(W)==1) {
+    warning("Your inputs are not correct")} 
+  
+  w<-c(0,x$w) #Lägger till nollor i inledningen för att få matrisen att starta med nollor.
+  v<-c(0,x$v) #Det krävs för att få koden till skapandet av matrisen att fungera.
   n<-length(v)-1
   Weight<-W
   

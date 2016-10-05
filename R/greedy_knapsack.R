@@ -27,6 +27,8 @@
 
 greedy_knapsack <- function(x,W){ 
   
+  if(!is.data.frame(x) || !all(colnames(x)==c("w","v")) || !all(x>0) || !W>0 || !length(W)==1) {
+    warning("Your inputs are not correct")} 
   
   
   x$rat<-x$v / x$w
