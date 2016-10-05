@@ -24,7 +24,7 @@
 #'@export
 knapsack_dynamic<-function(x, W){
   
-  if(!is.data.frame(x) || !all(colnames(x)==c("w","v")) || !all(x>0) || !W>0 || !length(W)==1) {
+  if(!is.data.frame(x) || !all(colnames(x)==c("w","v")) || !all(x>0) || !W>0 || !length(W)==1 || !is.numeric(W)) {
     warning("Your inputs are not correct")} 
   
   w<-c(0,x$w) #Lägger till nollor i inledningen för att få matrisen att starta med nollor.

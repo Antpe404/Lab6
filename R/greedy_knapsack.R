@@ -27,7 +27,7 @@
 
 greedy_knapsack <- function(x,W){ 
   
-  if(!is.data.frame(x) || !all(colnames(x)==c("w","v")) || !all(x>0) || !W>0 || !length(W)==1) {
+  if(!is.data.frame(x) || !all(colnames(x)==c("w","v")) || !all(x>0) || !W>0 || !length(W)==1 || !is.numeric(W)) {
     warning("Your inputs are not correct")} 
   
   
