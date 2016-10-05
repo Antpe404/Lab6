@@ -34,6 +34,9 @@
 
 
 knapsack_brute_force<-function(x, W){
+  if(!is.data.frame(x) || !all(colnames(x)==c("w","v")) || !all(x>0) || !W>0 || !length(W)==1) {
+    warning("Your inputs are not correct")} 
+  
   element<-0
   Values<-0
   spara<-1
