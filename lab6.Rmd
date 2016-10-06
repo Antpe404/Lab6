@@ -1,0 +1,72 @@
+---
+title: "Solve the knapsack problem with different methods"
+author: "Anton Persson & Emil Klasson Svensson"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+Lab6 is a package created during a R programming course given by Linkoping University. 
+The package includes three functions which provides three different methos to solve the knapsack problem, with different computational complexity. The three methods are brute force, dynamic and greedy.
+
+## Package Info
+The user of each of the three functions are supposed to use a data frame with two variables, w och v, and an integer W as input. The data frame should contain the actual data, and W is the maximum weigth the knapsack can bear. 
+These inputs will return a list with the maximum value and the chosen items given by the algorithm.
+
+
+## Examples of how to use the lab6 package
+
+To use brute force to solve the knapsack problem, use the brute\_force function that is included in the package. This method guarantee that you'll get the correct answer.
+
+```{r, echo=TRUE, message = FALSE, warning = FALSE }
+##Use the the first 16 rows of data, and W=2000
+library(lab6)
+
+brute_force_knapsack(x = knapsack_objects[1:12,], W=2000) 
+
+##You might wonder how heavy brute force is. Let's see!
+system.time(brute_force_knapsack(x = knapsack_objects[1:16,], W=2000))
+
+```
+As shown above, the brute force function takes THIS MUCH TIME to compute the solution.
+
+If you want a faster solution to the problem, you can use the knapsack\_dynamic function instead. Let's see how fast it is as well!
+
+```{r, echo=TRUE, message = FALSE, warning = FALSE }
+##Use the the first 12 rows of data, and W=2000
+knapsack_dynamic(x=knapsack_objects[1:12,], W=2000)
+
+
+
+## How long time does it takes to run the algorithm for n = 500 objects!
+system.time(knapsack_dynamic(x=knapsack_objects[1:16,], W=2000))
+
+```
+
+The knapsack\_dynamic function is clearly faster than the brute force. AS YOU CAN SEE HERE!
+
+Finally, let's use the greedy heuristic. This algorithm is an approximation, i.e. it won't guarantee the correct answer. Instead, it's supposed to be really fast!
+
+```{r, echo=TRUE, message = FALSE, warning = FALSE }
+##Use the the first 800 rows of data, and W=3500
+greedy_knapsack(x = knapsack_objects[1:800,], W = 3500)
+
+
+
+
+## How long time does it takes to run the algorithm for n = 1000000 objects?
+system.time(greedy_knapsack(x = knapsack_objects[1:800,], W = 3500))
+
+```
+
+The greedy\_knapsack function works faster than the previously algorithm, WHICH CAN BE SEEN above.
+
+
+##Contact info
+
+If you find any problems with the package or it's documentation, please send us some feedback or critique. Contact Anton Persson, antpe404@student.liu.se, or Emil Klasson Svensson, emisv463@student.liu.se.
+
+
