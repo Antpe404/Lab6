@@ -28,6 +28,8 @@ test_that("Results",{
   expect_equal(knapsack_dynamic(x=data.frame(w=c(1,3,4,5), v=c(1,4,5,7)), W=12)$value, 16)
 
   
+  expect_equal(knapsack_dynamic(x=data.frame(w=c(1,3,4,5), v=c(1,4,5,7)), W=7)$value,
+               knapsack_brute_force(x=data.frame(w=c(1,3,4,5), v=c(1,4,5,7)), W=7)$value)
 })
 
 
