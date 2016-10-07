@@ -17,18 +17,28 @@
 #'knapsack_objects <- data.frame( w=sample(1:4000, size = n, replace = TRUE), 
 #'                                v=runif(n = n, 0, 10000) )
 #'
-#'greedy_knapsack(x = knapsack_objects[1:800,], W = 3500)
+#'knapsack_greedy(x = knapsack_objects[1:800,], W = 3500)
 #'
 #'
-#'greedy_knapsack(x = knapsack_objects[1:1200,], W = 2000)
+#'knapsack_greedy(x = knapsack_objects[1:1200,], W = 2000)
 #'
 #'
 #'@export
 
-greedy_knapsack <- function(x,W){ 
+knapsack_greedy <- function(x,W){ 
   
-  if(!is.data.frame(x) || !all(colnames(x)==c("w","v")) || !all(x>0) || !W>0 || !length(W)==1 || !is.numeric(W)) {
-    warning("Your inputs are not correct")} 
+  if(!is.data.frame(x)){warning("Your data frame is not in a correct format. Supply a data frame with columns v and w.")}
+  
+  if( !all(colnames(x)==c("w","v")) ){warning("Your data frame is not in a correct format. Supply a data frame with columns v and w.")}
+  
+  if( !all(x>0) ){warning("All elements in the data frame must be greater then zero")}
+    
+  if((W < 1) || (length(W) != 1) || (!is.numeric(W))){warning("The wheight must be a single number larger or equal to 1 ")}
+
+  #if 
+  
+  #if(!is.data.frame(x) || !all(colnames(x)==c("w","v")) || !all(x>0) || !W>0 || !length(W)==1 || !is.numeric(W)) {
+    #warning("Your inputs are not correct")} 
   
   
   x$rat<-x$v / x$w
@@ -53,8 +63,8 @@ greedy_knapsack <- function(x,W){
   
 }
 
-#greedy_knapsack(x = knapsack_objects[1:800,], W = 3500)
+#knapsack_greedy(x = knapsack_objects[1:800,], W = 3500)
 
-#greedy_knapsack(x = knapsack_objects[1:1200,], W = 2000)
+#knapsack_greedy(x = knapsack_objects[1:1200,], W = 2000)
 
 

@@ -8,3 +8,7 @@ Maintainer: Emil Klasson Svensson <emisv463@student.liu.se>
 Description: Implements three different solutions to the knapsack problem
 License: BSD_2_clause
 RoxygenNote: 5.0.1
+Suggests: testthat,
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr

@@ -24,8 +24,16 @@
 #'@export
 knapsack_dynamic<-function(x, W){
   
-  if(!is.data.frame(x) || !all(colnames(x)==c("w","v")) || !all(x>0) || !W>0 || !length(W)==1 || !is.numeric(W)) {
-    warning("Your inputs are not correct")} 
+  if(!is.data.frame(x)){warning("Your data frame is not in a correct format. Supply a data frame with columns v and w.")}
+  
+  if( !all(colnames(x)==c("w","v")) ){warning("Your data frame is not in a correct format. Supply a data frame with columns v and w.")}
+  
+  if( !all(x>0) ){warning("All elements in the data frame must be greater then zero")}
+  
+  if((W < 1) || (length(W) != 1) || (!is.numeric(W))){warning("The wheight must be a single number larger or equal to 1 ")}
+  
+  #if(!is.data.frame(x) || !all(colnames(x)==c("w","v")) || !all(x>0) || !W>0 || !length(W)==1 || !is.numeric(W)) {
+    #warning("Your inputs are not correct")} 
   
   w<-c(0,x$w) #Lägger till nollor i inledningen för att få matrisen att starta med nollor.
   v<-c(0,x$v) #Det krävs för att få koden till skapandet av matrisen att fungera.
